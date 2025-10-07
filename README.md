@@ -6,6 +6,8 @@ The system was developed by first designing a board equipped with two microphone
 
 This second board integrates an ESP32 microcontroller and a microSD card. The complete system requires an external 3.3 V power source capable of supplying up to 100 mA, mainly due to current spikes during SD card write operations.
 
+<img src="Project_pic.jpg" alt="Microphone setup" width="400">
+
 All design files for the two boards are available in this repository and can be edited with EasyEDA. The C++ firmware for the ESP32 was written using PlatformIO. The program first configures the ADC by writing to its registers, then continuously reads data from the I²S interface and writes it in bursts to the microSD card as a .bin file.
 
 The provided extractsound.py script converts these .bin recordings into .wav files for playback and further audio post-processing in Python.
