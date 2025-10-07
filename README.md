@@ -1,13 +1,17 @@
-# Rocket-microphone-project
-This repository gives all the necessary files to build a stereo microphone system that was put onboard of several experimental rockets over the 2023-2025 period. The point of doing a stereophonic capture of the sound with 2 microphones put 10cm apart is to be able to put headphones post-flight and get the audio as if we were onboard. 
-This system was developped by building first a board with the 2 microphones, capacitors for filtering and a TLV320ADC6120IRTER as dual channel ADC. it was supposed to be linked to a external board throught I2C and I2S, but in the end, a second board was built specifically for this subsystem. The second board is made of an ESP32 and a microSD card. The whole system needs an external 3.3V source for power, of maximum 100mA (due to microSD card writing cycles pulling current spikes).
+This repository contains all the necessary files to build a stereo microphone system that was mounted onboard several experimental rockets between 2023 and 2025.
 
-The files for the two boards can be found in the repo and are meant to be edited on EasyEDA.
-The C++ code for the ESP32 was wrote using PlatformIO as IDE. It works by first settings the parameters of the ADC by writing in its registers, and then simply reading the I2S line and writing bursts of datas on the microSD card in a .bin file.
-Finally, the extractsound.py file is a file for converting the .bin to wav files that you can listen to.
-Python for audio post-processing.
+The purpose of using a stereophonic setup—with two microphones placed 10 cm apart—is to allow post-flight playback through headphones, recreating the sensation of being onboard the rocket.
 
-The audio of the flight done in 2025 onboard a 2 stages rocket can be found [here](https://youtu.be/YBQxnALEHxU). The audio is of poor quality during the ascending phase of the flight, because of the saturation of the microphones during this phase. One way to prevent this would be to lower the gain of the ADC by a lot, or to use a "dynamic gain" parameter on the ADC for it to automatically adjust the gain according to the volume of what is listened.
+The system was developed by first designing a board equipped with two microphones, filtering capacitors, and a TLV320ADC6120IRTER dual-channel ADC. It was initially intended to interface with an external control board via I²C and I²S, but a dedicated second board was eventually designed specifically for this subsystem.
 
-Have fun !
+This second board integrates an ESP32 microcontroller and a microSD card. The complete system requires an external 3.3 V power source capable of supplying up to 100 mA, mainly due to current spikes during SD card write operations.
+
+All design files for the two boards are available in this repository and can be edited with EasyEDA. The C++ firmware for the ESP32 was written using PlatformIO. The program first configures the ADC by writing to its registers, then continuously reads data from the I²S interface and writes it in bursts to the microSD card as a .bin file.
+
+The provided extractsound.py script converts these .bin recordings into .wav files for playback and further audio post-processing in Python.
+
+An example recording from a 2025 flight onboard a two-stage rocket can be found [here](https://youtu.be/YBQxnALEHxU). The audio quality during ascent is relatively poor due to microphone saturation at high sound pressure levels. This issue could be mitigated by significantly lowering the ADC gain or by implementing a dynamic gain control feature that automatically adjusts the input gain based on the detected volume.
+
+Enjoy exploring the project! 🚀🎧
+
 
