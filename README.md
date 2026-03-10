@@ -1,4 +1,4 @@
-This repository contains all the necessary files to build a stereo microphone system that was mounted onboard several experimental rockets between 2023 and 2025.
+This repository contains all the necessary files to build a stereo microphone system that was mounted onboard several experimental rockets between 2023 and 2025, in rockets of the Cercle Aérospatial CentraleSupélec.
 
 The purpose of using a stereophonic setup—with two microphones placed 10 cm apart—is to allow post-flight playback through headphones, recreating the sensation of being onboard the rocket.
 
